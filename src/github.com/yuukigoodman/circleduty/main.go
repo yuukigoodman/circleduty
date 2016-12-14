@@ -12,26 +12,26 @@ import (
 func main() {
 	viper.SetEnvPrefix("circleduty")
 	viper.BindEnv("auth_token")
+	viper.BindEnv("service_key")
 	viper.AutomaticEnv()
-
-	authtoken := viper.GetString("auth_token")
-	var opts pagerduty.ListEscalationPoliciesOptions
-	pd := pagerduty.NewClient(authtoken)
 
 	app := cli.NewApp()
 	app.Name = "circleduty"
 	app.Usage = "circleduty fail"
 	app.Action = func(c *cli.Context) error {
-		if eps, err := pd.ListEscalationPolicies(opts); err != nil {
-			panic(err)
-		} else {
-			for _, p := range eps.EscalationPolicies {
-				fmt.Println(p.Name)
-			}
+		e := pagerduty.Event{
+			Type:        "trigger",
+			ServiceKey:  viper.GetString("service_key"),
+			Description: "test desctiption",
 		}
 
-		message := fmt.Sprintf("PagerDuty Incident created: %s", authtoken)
-		fmt.Println(message)
+		if res, err := pagerduty.CreateEvent(e); err != nil {
+			panic(err)
+		} else {
+			message := fmt.Sprintf("PagerDuty Incident created: %s", res.IncidentKey)
+			fmt.Println(message)
+		}
+
 		return nil
 	}
 
