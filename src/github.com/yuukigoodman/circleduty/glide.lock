@@ -1,8 +1,12 @@
-hash: f69044261492e0a943e1b3fd9a63dfd11b1da000f0f6d90eab814f0ead96cf46
-updated: 2016-12-14T20:13:19.058467744+09:00
+hash: 36a351af28f41bfbee414f36eedddb7dac5f4ad3385ae49df1b9a78782e757c3
+updated: 2016-12-14T20:24:04.384995357+09:00
 imports:
 - name: github.com/fsnotify/fsnotify
   version: 629574ca2a5df945712d3079857300b5e4da0236
+- name: github.com/google/go-querystring
+  version: 9235644dd9e52eeae6fa48efd539fdc351a0af53
+  subpackages:
+  - query
 - name: github.com/hashicorp/hcl
   version: 7cb7455c285ca3bf3362aa4ba6a06a6d6f5c3ba0
   subpackages:
