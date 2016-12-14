@@ -3,7 +3,7 @@
 ## Usage
 
 ```
-$ CIRCLEDUTY_AUTH_TOKEN=xxx ciecleci-pagerduty fail --service web
+$ CIRCLEDUTY_AUTH_TOKEN=xxx circleduty fail --service web
 ```
 
 ## License
