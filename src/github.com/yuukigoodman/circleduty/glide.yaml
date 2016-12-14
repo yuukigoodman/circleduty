@@ -1,0 +1,8 @@
+package: github.com/yuukigoodman/circleci-pagerduty
+import:
+- package: github.com/PagerDuty/go-pagerduty
+- package: github.com/urfave/cli
+  version: ^1.19.1
+- package: github.com/spf13/viper
+- package: github.com/fsnotify/fsnotify
+  version: ^1.4.2
